@@ -33,6 +33,12 @@ Searching for matching letters in 4 directions  :
 **Note that the order in which we look for matching letters doesn't matter, we can search in different order (2, 1, 3, 4) or (3, 4, 1, 2) etc.**
 
 
+So we will iterate over grid row by row, scanning from first column to last column. We will first check if 
+`board[row][column] == word.charAt(0)` is true, if it is, it means now we can start our search.
+
+We will define a recursive method which will help us find the matches at index 1, index 2, index 3 and so on. We will increment the index by one, once we find a match for the character in the grid. If the value of index becomes equal to length of the given word, it means we found the entire match and we will return true (this will be one of our base case in the recursive method).
+
+
 ## Implementation :
 
 ```java
