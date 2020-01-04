@@ -20,7 +20,8 @@ Given word = "SEE", return true.
 Given word = "ABCB", return false.
 ```
 ## Approach :
-
+Ok lets ask this question before we talk about code implementation, how do we solve this problem in our head :grey_question:
+we first search for first matching letter
 
 
 ## Implementation :
