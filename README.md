@@ -74,7 +74,7 @@ So to handle the false match issue, we mark each matched cell in our search with
 ```
 And our search will return false, because it won't find match for the last `C` in the word `ABCCC`
 
-**We revert the value in the board to its previous value once we finish one entire search ( update # to actual value which was present at that cell) **
+**We revert the value in the board to its previous value once we finish one entire search ( update # to actual value which was present at that cell)**
 
 ## Implementation :
 
