@@ -27,38 +27,38 @@ Given word = "ABCB", return false.
 
 ```java
 public  boolean exist(char[][] board, String word) {
-		if(board == null || board.length == 0)
-			return false;
-		
-		for(int row = 0; row < board.length; row++) {
-			for(int column = 0; column < board[0].length; column++) {
-				if(board[row][column] == word.charAt(0) && searchWord(board, row, column, word, 0)) {
-					return true;
-				}
-			}
-		}
+	if(board == null || board.length == 0)
 		return false;
-	}
-
-	private  boolean searchWord(char[][] board, int row, int column, String word, int index) {
-		if(index == word.length()) {
+		
+	for(int row = 0; row < board.length; row++) {
+	    for(int column = 0; column < board[0].length; column++) {
+		 if(board[row][column] == word.charAt(0) && searchWord(board, row, column, word, 0)) {
 			return true;
-		}
-		if(row < 0 || row >= board.length || column < 0 || column >= board[0].length || 
-				 board[row][column] != word.charAt(index)) {
-			return false;
-		}
-		
-		char temp = board[row][column];
-		board[row][column] = '#';
-		
-		boolean res = searchWord(board, row, column + 1, word, index + 1) ||
-				      searchWord(board, row, column - 1, word, index + 1) ||
-				      searchWord(board, row - 1, column, word, index + 1) ||
-				      searchWord(board, row + 1, column, word, index + 1);
-		
-		board[row][column] = temp;
-		return res;		      
+		 }
+	    }
 	}
+    return false;
+}
+
+private  boolean searchWord(char[][] board, int row, int column, String word, int index) {
+	if(index == word.length()) {
+	   return true;
+	}
+	if(row < 0 || row >= board.length || column < 0 || column >= board[0].length || 
+	     board[row][column] != word.charAt(index)) {
+	     return false;
+	}
+		
+	char temp = board[row][column];
+	board[row][column] = '#';
+		
+	boolean res = searchWord(board, row, column + 1, word, index + 1) ||
+		      searchWord(board, row, column - 1, word, index + 1) ||
+		      searchWord(board, row - 1, column, word, index + 1) ||
+		      searchWord(board, row + 1, column, word, index + 1);
+		
+	board[row][column] = temp;
+	return res;		      
+}
 
 ```
