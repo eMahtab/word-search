@@ -30,7 +30,7 @@ Searching for matching letters in 4 directions  :
 3. one row above (row - 1, column)
 4. one row down  (row + 1, column)
 
-Note that the order in which we look for matching letters doesn't matter, we can look different order (2, 1, 3, 4) or (3, 4, 1, 2) etc.
+**Note that the order in which we look for matching letters doesn't matter, we can search in different order (2, 1, 3, 4) or (3, 4, 1, 2) etc.**
 
 
 ## Implementation :
