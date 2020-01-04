@@ -36,16 +36,43 @@ Searching for matching letters in 4 directions  :
 So we will iterate over grid row by row, scanning from first column to last column. We will first check if 
 `board[row][column] == word.charAt(0)` is true, if it is, it means now we can start our search.
 
-#### Base cases :
+#### 2 Base cases :
 
-We will define a recursive method which will help us find the matches at index 1, index 2, index 3 and so on. We will increment the index by one, once we find a match for the character in the grid. If the value of index becomes equal to length of the given word, it means we found the entire match and we will return true (this will be one of our base case in the recursive method).
+1. We will define a recursive method which will help us find the matches at index 1, index 2, index 3 and so on. We will increment the index by one, once we find a match for the character in the grid. If the value of index becomes equal to length of the given word, it means we found the entire match and we will return true (this will be one of our base case in the recursive method).
 
-Also we need to check whether the value of row and column are within the bounds of the board and 
+2. Also we need to check whether the value of row and column are within the bounds of the board and 
 if `board[row][column] != word.charAt(index)`, if not we will return false (this will be our second base case in the recursive method)
 
 Otherwise it means, we haven't found the entire word match and the character at `index` matches with `board[row][column]`
-So now we search for next characters match in 4 cells `(row, column + 1)  (row, column - 1)  (row - 1, column)  (row + 1, column)` 
+So now we search for next characters match in 4 cells `(row, column + 1)  (row, column - 1)  (row - 1, column)  (row + 1, column)` , since we have to look for match, for the next character in the word we increment the index by one.
 
+If any one of above four searche ( 4 recursive calls) resturns true we return true.
+
+### Handling False Match
+Since our implementation is recursive, we may get in a scenario where, we have an exact match for a character but we have alreday counted that cell as a match before in our search. If we consider a cell, where we already found a character match, again, this will result in a false match. 
+
+For example in the given board below, there is no match for the word `ABCCC` , but if we don't mark the already matched characters in our search, our implementation will result true, which will be wrong.
+
+```
+[
+  ['A','B','C','E'],
+  ['S','F','C','S'],
+  ['A','D','E','E']
+]
+```
+
+So to handle the false match issue, we mark each matched cell in our search with `#` symbol. By doing this we will avoid founding the same cell match for the character.
+
+```
+[
+  ['#','#','#','E'],
+  ['S','F','#','S'],
+  ['A','D','E','E']
+]
+```
+And our search will return false, because it won't find match for the last `C` in the word `ABCCC`
+
+**We revert the value in the board to its previous value once we finish one entire search ( update # to actual value which was present at that cell) **
 
 ## Implementation :
 
