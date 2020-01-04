@@ -21,7 +21,16 @@ Given word = "ABCB", return false.
 ```
 ## Approach :
 Ok lets ask this question before we talk about code implementation, how do we solve this problem in our head :grey_question:
-we first search for first matching letter
+
+We first search for first matching letter in the grid which matches with the first letter of the given word.
+Then we try to find the match for remaining letters of the word in the grid.
+Searching for matching letters in 4 directions  :
+1. one column forward  (row, column + 1)
+2. one column backward (row, column - 1)
+3. one row above (row - 1, column)
+4. one row down  (row + 1, column)
+
+Note that the order in which we look for matching letters doesn't matter, we can look different order (2, 1, 3, 4) or (3, 4, 1, 2) etc.
 
 
 ## Implementation :
