@@ -76,6 +76,8 @@ And our search will return false, because it won't find match for the last `C` i
 
 **We revert the value in the board to its previous value once we finish one entire search ( update # to actual value which was present at that cell)**
 
+### ❗️ :exclamation: You can add breakpoint in the code to see, cell values updating to # as we progress in our search
+
 ## Implementation :
 
 ```java
