@@ -46,7 +46,7 @@ if `board[row][column] != word.charAt(index)`, if not we will return false (this
 Otherwise it means, we haven't found the entire word match and the character at `index` matches with `board[row][column]`
 So now we search for next characters match in 4 cells `(row, column + 1)  (row, column - 1)  (row - 1, column)  (row + 1, column)` , since we have to look for match, for the next character in the word we increment the index by one.
 
-If any one of above four searche ( 4 recursive calls) resturns true we return true.
+If any one of above four searches ( 4 recursive calls) resturns true we return true.
 
 ### Handling False Match
 Since our implementation is recursive, we may get in a scenario where, we have an exact match for a character but we have alreday counted that cell as a match before in our search. 
