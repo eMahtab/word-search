@@ -49,7 +49,9 @@ So now we search for next characters match in 4 cells `(row, column + 1)  (row, 
 If any one of above four searche ( 4 recursive calls) resturns true we return true.
 
 ### Handling False Match
-Since our implementation is recursive, we may get in a scenario where, we have an exact match for a character but we have alreday counted that cell as a match before in our search. If we consider a cell, where we already found a character match, again, this will result in a false match. 
+Since our implementation is recursive, we may get in a scenario where, we have an exact match for a character but we have alreday counted that cell as a match before in our search. 
+
+**If we consider a cell, where we already found a character match, again, this will result in a false match.** 
 
 For example in the given board below, there is no match for the word `ABCCC` , but if we don't mark the already matched characters in our search, our implementation will result true, which will be wrong.
 
