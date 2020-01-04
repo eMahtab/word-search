@@ -36,7 +36,15 @@ Searching for matching letters in 4 directions  :
 So we will iterate over grid row by row, scanning from first column to last column. We will first check if 
 `board[row][column] == word.charAt(0)` is true, if it is, it means now we can start our search.
 
+#### Base cases :
+
 We will define a recursive method which will help us find the matches at index 1, index 2, index 3 and so on. We will increment the index by one, once we find a match for the character in the grid. If the value of index becomes equal to length of the given word, it means we found the entire match and we will return true (this will be one of our base case in the recursive method).
+
+Also we need to check whether the value of row and column are within the bounds of the board and 
+if `board[row][column] != word.charAt(index)`, if not we will return false (this will be our second base case in the recursive method)
+
+Otherwise it means, we haven't found the entire word match and the character at `index` matches with `board[row][column]`
+So now we search for next characters match in 4 cells `(row, column + 1)  (row, column - 1)  (row - 1, column)  (row + 1, column)` 
 
 
 ## Implementation :
