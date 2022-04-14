@@ -118,6 +118,18 @@ private  boolean searchWord(char[][] board, int row, int column, String word, in
 
 ```
 
+## Important Note : OR
+```java
+boolean res = searchWord(board, row, column + 1, word, index + 1) ||
+		      searchWord(board, row, column - 1, word, index + 1) ||
+		      searchWord(board, row - 1, column, word, index + 1) ||
+		      searchWord(board, row + 1, column, word, index + 1);
+```
+we are using OR operation, since we just want any one match. And we don't want to keep our search running if we found one match. This is very important.
+If we don't use the OR operation, the search will keep running till it searches all possible combination.
+**If we want to return on the first match of the word in the grid, then OR operation is must.**
+
+
 ## References :
 https://www.youtube.com/watch?v=vYYNp0Jrdv0
 
